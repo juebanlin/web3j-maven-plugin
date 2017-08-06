@@ -25,7 +25,9 @@ public class SolidityCompilerTest {
         CompilerResult compilerResult = solidityCompiler.compileSrc(source, SolidityCompiler.Options.ABI, SolidityCompiler.Options.BIN);
 
         assertFalse(compilerResult.isFailed());
-        assertTrue(compilerResult.errors.isEmpty());
+        String preRelease = "Warning: This is a pre-release compiler version, please do not use it in production.";
+        String errors = compilerResult.errors.replace(preRelease, "");
+        assertTrue(compilerResult.errors, errors.isEmpty());
         assertFalse(compilerResult.output.isEmpty());
 
         assertTrue(compilerResult.output.contains("\"greeter\""));

@@ -9,12 +9,21 @@ web3j maven plugin is used to create java classes based on the solidity contract
 The base configuration for the plugin will take the solidity files from `src/main/resources` and generates the java classes into the folder `src/main/java`.
 
 ```xml
+<repositories>
+    <repository>
+        <id>bigmlab</id>
+        <url>https://bigmlab.github.io/repo/</url>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+    </repository>
+</repositories>
 <build>
     <plugins>
         <plugin>
             <groupId>org.web3j</groupId>
             <artifactId>web3j-maven-plugin</artifactId>
-            <version>0.1.2</version>
+            <version>0.1.3</version>
             <configuration>
                 <soliditySourceFiles/>
             </configuration>
@@ -46,7 +55,7 @@ Create a standard java maven project. Add following `<plugin>` - configuration i
 <plugin>
     <groupId>org.web3j</groupId>
     <artifactId>web3j-maven-plugin</artifactId>
-    <version>0.1.2</version>
+    <version>0.1.3</version>
     <configuration>
         <packageName>com.zuehlke.blockchain.model</packageName>
         <sourceDestination>src/main/java/generated</sourceDestination>
@@ -68,7 +77,7 @@ start the generating process:
 ```
 > mvn web3j:generate-sources
 
-[INFO] --- web3j-maven-plugin:0.1.2:generate-sources (default-cli) @ hotel-showcase ---
+[INFO] --- web3j-maven-plugin:0.1.3:generate-sources (default-cli) @ hotel-showcase ---
 [INFO] process 'HotelShowCaseProxy.sol'
 [INFO] 	Built Class for contract 'HotelShowCaseProxy'
 [INFO] 	Built Class for contract 'HotelShowCaseV2'
@@ -90,6 +99,9 @@ Next step is to interact with the smart contract. See for that [deploying and in
 
 
 ## Changelog
+### 0.1.3
+ * Update solc compiler to 0.4.14  
+
 ### 0.1.2
  * Better Contract Handling
 
