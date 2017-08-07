@@ -9,15 +9,15 @@ web3j maven plugin is used to create java classes based on the solidity contract
 The base configuration for the plugin will take the solidity files from `src/main/resources` and generates the java classes into the folder `src/main/java`.
 
 ```xml
-<repositories>
-    <repository>
+<pluginRepositories>
+    <pluginRepository>
         <id>bigmlab</id>
         <url>https://bigmlab.github.io/repo/</url>
         <snapshots>
             <enabled>true</enabled>
         </snapshots>
-    </repository>
-</repositories>
+    </pluginRepository>
+</pluginRepositories>
 <build>
     <plugins>
         <plugin>
